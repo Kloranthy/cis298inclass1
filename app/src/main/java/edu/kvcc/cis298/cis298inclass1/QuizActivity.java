@@ -28,7 +28,8 @@ public class QuizActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_quiz);
 
-		//mQuestionTextView = (TextView)
+		mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
+		updateQuestionText();
 
 		mTrueButton = (Button) findViewById(R.id.true_button);
 		mFalseButton = (Button) findViewById(R.id.false_button);
@@ -40,11 +41,14 @@ public class QuizActivity
 				@Override
 				public void onClick(View v)
 				{
-					Toast.makeText(
-							QuizActivity.this,
-							R.string.incorrect_toast,
-							Toast.LENGTH_SHORT
-					).show();
+					if(mQuestionBank[mCurrentIndex].isAnswerTrue())
+					{
+						doCorrectToast();
+					}
+					else
+					{
+						doIncorrectToast();
+					}
 				}
 			}
 		);
@@ -54,11 +58,14 @@ public class QuizActivity
 				@Override
 				public void onClick(View v)
 				{
-					Toast.makeText(
-							QuizActivity.this,
-							R.string.correct_toast,
-							Toast.LENGTH_SHORT
-					).show();
+					if(mQuestionBank[mCurrentIndex].isAnswerTrue())
+					{
+						doIncorrectToast();
+					}
+					else
+					{
+						doCorrectToast();
+					}
 				}
 			}
 		);
@@ -68,9 +75,39 @@ public class QuizActivity
 				@Override
 				public void onClick(View v)
 				{
-					// nothing
+					mCurrentIndex++;
+					if(mCurrentIndex == mQuestionBank.length)
+					{
+						mCurrentIndex = 0;
+					}
+					updateQuestionText();
 				}
 			}
+		);
+	}
+
+	private void doCorrectToast()
+	{
+		Toast.makeText(
+			QuizActivity.this,
+			R.string.correct_toast,
+			Toast.LENGTH_SHORT
+		).show();
+	}
+
+	private void doIncorrectToast()
+	{
+		Toast.makeText(
+				QuizActivity.this,
+				R.string.incorrect_toast,
+				Toast.LENGTH_SHORT
+		).show();
+	}
+
+	private void updateQuestionText()
+	{
+		mQuestionTextView.setText(
+				mQuestionBank[mCurrentIndex].getTextResId()
 		);
 	}
 }

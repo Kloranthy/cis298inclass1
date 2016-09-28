@@ -6,10 +6,25 @@
     <string name="question_africa">The source of the Nile River is in Egypt.</string>
     <string name="question_americas">The Amazon River is the longest River in the Americas.</string>
     <string name="question_asia">Lake Baikal is the world\'s oldest and deepest lake.</string>
+
+    <string name="question_1_multi">Who was the first Earthling to achieve warp drive
+        and make first contact with the Vulcans?</string>
+    <string name="question_2_multi">What do Klingons consider to be most important?</string>
     <!-- button labels -->
     <string name="true_button">True</string>
     <string name="false_button">False</string>
+    <string name="submit_button">Submit</string>
     <string name="next_button">Next</string>
+
+    <string name="question_1_choice_1">Johnathan Archer</string>
+    <string name="question_1_choice_2">James Kirk</string>
+    <string name="question_1_choice_3">Zefram Cochrane</string>
+    <string name="question_1_choice_4">Jean-Luc Picard</string>
+
+    <string name="question_2_choice_1">Profit</string>
+    <string name="question_2_choice_2">Honour</string>
+    <string name="question_2_choice_3">Logic</string>
+    <string name="question_2_choice_4">Religion</string>
     <!-- toast messages -->
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
